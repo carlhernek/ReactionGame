@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+    <link href="Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="instructions"> 
+        <h3>This is how you play the game</h3>
+        <button onclick="letMePlay()" id="letmeplay" class="button">Let me play already!</button>
+    </div>
+
+    <div id="popup"> 
+        <p id="winner"></p>
+        <button onclick="popUpDown()" id="yay" class="button">Yay!</button>
+    </div>
+
+    <div class="container">
+
+        <div class="timer" >
+            <h3>
+                <span id="p1cheater"></span>
+                <span id="p1seconds">0</span>
+                :
+                <span id="p1hundreds"> 0 </span>
+            </h3>
+        </div>
+
+        <div id="square">
+            <button onclick="startBtn()" class="button" id="start">START!</button>
+            <span id="postgame">
+            <button onclick="againBtn()" class="button" id="again">Next round</button>
+            </span>
+        </div> 
+
+
+        <div class="timer" >
+            <h3>
+                <span id="p2cheater"></span>
+                <span id="p2seconds">0</span>
+                :
+                <span id="p2hundreds"> 0 </span>
+            </h3>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
