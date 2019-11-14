@@ -1,4 +1,4 @@
-// Buttons
+// Buttons & Globals
 let startButton = document.getElementById("start");
 let againButton = document.getElementById("again");
 againButton.style.display = "none";
@@ -12,7 +12,7 @@ function startBtn () {
 function againBtn () {
     startButton.style.display = "block";
     againButton.style.display = "none";
-    square.style.backgroundColor = "burlywood";
+    square.style.backgroundColor = "rgb(66, 66, 66)";
     finishP1 = false;
     finishP2 = false;
     cheaterP1 = true;
@@ -21,9 +21,7 @@ function againBtn () {
     hsOne = 0;
     secTwo = 0;
     hsTwo = 0;
-    pOneTimerS.innerHTML = 0;
     pOneTimerH.innerHTML = 0;
-    pTwoTimerS.innerHTML = 0;
     pTwoTimerH.innerHTML = 0;
     cheaterPlayer1.innerHTML = "";
     cheaterPlayer2.innerHTML = "";
@@ -31,12 +29,10 @@ function againBtn () {
 };
 
 // Player 1 
-let pOneTimerS = document.getElementById("p1seconds");
 let pOneTimerH = document.getElementById("p1hundreds");
 let cheaterPlayer1 = document.getElementById("p1cheater");
 
 // Player 2
-let pTwoTimerS = document.getElementById("p2seconds");
 let pTwoTimerH = document.getElementById("p2hundreds");
 let cheaterPlayer2 = document.getElementById("p2cheater");
 
@@ -60,45 +56,23 @@ function colorChangeTimer (base) {
 };
 
 // Counter Player 1
-let secOne = 0;
 let hsOne = 0;
 let hsP1;
-let secP1;
-
-let secondCounterP1 = function() {
-    secOne++;
-    pOneTimerS.innerHTML = secOne;
-};
 
 let hundredsCounterP1 = function () {
-    if (hsOne < 100) {
-        pOneTimerH.innerHTML = hsOne;
-        hsOne++
-    }
-    else {
-        hsOne = 0;
-    }
+
+    pOneTimerH.innerHTML = hsOne;
+    hsOne++
+
 };
 
 // Counter Player 2
-let secTwo = 0;
 let hsTwo = 0;
 let hsP2;
-let secP2;
-
-let secondCounterP2 = function() {
-    secTwo++;
-    pTwoTimerS.innerHTML = secTwo;
-};
 
 let hundredsCounterP2 = function () {
-    if (hsTwo < 100) {
-        pTwoTimerH.innerHTML = hsTwo;
-        hsTwo++
-    }
-    else {
-        hsTwo = 0;
-    }
+    pTwoTimerH.innerHTML = hsTwo;
+    hsTwo++
 };
 
 // Start
@@ -107,20 +81,16 @@ function startFunction() {
     cheaterPlayer2.innerHTML = "";
     cheaterP1 = false;
     cheaterP2 = false;
-    secP2 = setInterval(secondCounterP2, 1000);
     hsP2 = setInterval(hundredsCounterP2, 10);
-    secP1 = setInterval(secondCounterP1, 1000);
     hsP1 = setInterval(hundredsCounterP1, 10);
 };
 
 // Stop
 function stopFunction(player) {
     if (player === 1) {
-        clearInterval(secP1)
         clearInterval(hsP1)
     }
     if (player === 2) {
-        clearInterval(secP2)
         clearInterval(hsP2)
     }
 };
@@ -180,17 +150,11 @@ function popUpUp() {
 }
 
 function whoWon() {
-    if (secOne > secTwo) {
+    if (hsOne > hsTwo) {
         winWin.innerHTML = "Player 2 is the winner!"
-    } if (secOne < secTwo) {
+    } if (hsOne < hsTwo) {
         winWin.innerHTML = "Player 1 is the winner!"
-    } else if (secOne === secTwo) {
-        if (hsOne > hsTwo) {
-            winWin.innerHTML = "Player 2 is the winner!"
-        } if (hsOne < hsTwo) {
-            winWin.innerHTML = "Player 1 is the winner!"
-        }
-    }
+    } 
 }
 
 // Instructions screen

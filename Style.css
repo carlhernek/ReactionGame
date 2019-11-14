@@ -4,12 +4,14 @@
 
 body {
     margin: 0;
-    background-color: bisque;
+    background-color: #3b3b3b;
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 h3 {
-    color: black;
+    color: #242424;
+    font-size: 30px;
 }
 
 .container {
@@ -27,13 +29,29 @@ h3 {
     justify-content: center;
     height: 250px;
     width: 250px;
-    background-color: burlywood;
+    background-color: rgb(66, 66, 66);
+    border-radius: 50%;
 }
 
 .button {
     height: 50px;
     width: 200px;
+    background-color: salmon;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #242424;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+    transition: .25s;
+    font-size: 25px;
+    
 }
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 .timer {
     display: flex;
@@ -42,17 +60,19 @@ h3 {
     height: 100px;
     width: 250px;
     background-color: burlywood;
+    border-radius: 15px;
 }
 
 #popup {
+    border-radius: 15px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 30%;
+    height: 45%;
     width: 30%;
-    background-color: cadetblue;
+    background-color: burlywood;
     top: 80%;
     bottom: 0;
     left: 0;
@@ -63,6 +83,12 @@ h3 {
     margin-bottom: auto;
     transition: .8s;
     opacity: 0;
+    z-index: 2;
+}
+
+#popup p {
+    color: #242424;
+    font-size: 30px;
 }
 
 #instructions {
@@ -73,7 +99,69 @@ h3 {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-color: darkgoldenrod;
+    background-color: burlywood;
     transition: .8s;
     bottom: 0;
+    z-index: 5;
+}
+
+
+.homecontainer {
+    display: flex;
+    justify-items: flex-start;
+    position: fixed;
+    left: 100px;
+    top: 100px;
+    width: 100%;
+}
+
+.homecontainer .homebutton {
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+    height: 80px;
+    width: 80px;
+    background-color: salmon;
+    border-radius: 50%;
+    transition: .25s;
+    z-index: 3;
+}
+
+.homecontainer:hover .homebutton {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.homecontainer .hometext {
+    position: absolute;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+    height: 50px;
+    width: 0px;
+    margin-left: 20px;
+    margin-top: 15px;
+    background-color: salmon;
+    border-radius: 10px;
+    transition: .6s;
+    transition-delay: 0;
+}
+
+.homecontainer:hover .hometext {
+    width: 250px;
+    transition-delay: 0.2s;
+}
+
+.homecontainer .homebtntext {
+    position: relative;
+    left: 15px;
+    z-index: 2;
+    font-size: 20px;
+    line-height: 40px;
+    color: #242424;
+    opacity: 0;
+    transition: 0.15s;
+    transition-delay: 0;
+}
+
+.homecontainer:hover .homebtntext {
+    opacity: 1;
+    transition: 0.45s;
+    transition-delay: .75s;
 }
